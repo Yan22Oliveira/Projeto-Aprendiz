@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import '../../../../shared/shared.dart';
 
 class LoginPage extends StatelessWidget {
@@ -17,22 +19,22 @@ class LoginPage extends StatelessWidget {
             Image.asset(
               AppImages.logoDiv,
             ),
-            const TextForm(
-              text: 'Informe seu e-mail',
+            TextForm(
+              text: AppLocalizations.of(context)!.enterYourEmail,
             ),
             const SizedBox(height: 8,),
-            const FormGeral(
-              labelText: 'E-mail',
+            FormGeral(
+              labelText: AppLocalizations.of(context)!.email,
               keyboardType: TextInputType.emailAddress,
               autocorrect: false,
             ),
             const SizedBox(height: 16,),
-            const TextForm(
-              text: 'Informe sua senha',
+            TextForm(
+              text: AppLocalizations.of(context)!.informYourPassword,
             ),
             const SizedBox(height: 8,),
-            const FormGeral(
-              labelText: 'Senha',
+            FormGeral(
+              labelText: AppLocalizations.of(context)!.password,
               password: true,
             ),
             const SizedBox(height: 8,),
@@ -42,7 +44,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: (){
 
                 },
-                text: 'Esqueceu a senha?',
+                text: AppLocalizations.of(context)!.forgotPassword,
               ),
             ),
             const SizedBox(height: 40,),
@@ -50,7 +52,7 @@ class LoginPage extends StatelessWidget {
               onPressed: (){
 
               },
-              text: 'Autenticar',
+              text: AppLocalizations.of(context)!.authenticate,
             ),
             const SizedBox(height: 8,),
             Row(
@@ -58,14 +60,14 @@ class LoginPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Não possui uma conta?',
+                  AppLocalizations.of(context)!.dontHaveAnAccount,
                   style: TextStyles.textForm,
                 ),
                 TextButtonPrincipal(
                   onPressed: (){
 
                   },
-                  text: 'Criar conta',
+                  text: AppLocalizations.of(context)!.createAccont,
                   textStyle: TextStyles.textLabelButtonBold,
                 ),
               ],

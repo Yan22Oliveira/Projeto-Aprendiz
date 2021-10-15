@@ -1,0 +1,17 @@
+{
+  "address": "Address",
+  "access": "Access",
+  "authenticate": "Authenticate",
+  "data": "Data",
+  "email": "Email",
+  "enter": "Enter",
+  "next": "Next",
+  "password": "Password",
+  "alreadyHaveAnAccount": "Already have an account?",
+  "confirmPassword": "Confirm password",
+  "createAccont": "Create accont",
+  "dontHaveAnAccount": "Don't have an account?",
+  "enterYourEmail": "Enter your email",
+  "forgotPassword": "Forgot password?",
+  "informYourPassword": "Inform your password"
+}

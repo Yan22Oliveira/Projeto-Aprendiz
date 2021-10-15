@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import './shared/shared.dart';
@@ -26,6 +28,17 @@ class _AppWidgetState extends State<AppWidget> {
     return MaterialApp(
       title: 'Projeto Aprendiz',
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en', ''),
+        Locale('pt', ''),
+        Locale.fromSubtags(languageCode: 'zh'),
+      ],
       theme: ThemeData(
         primarySwatch: Colors.orange,
         primaryColor: AppColors.primary,

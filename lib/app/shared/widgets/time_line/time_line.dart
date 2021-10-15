@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import '../../shared.dart';
 
 class TimeLine extends StatelessWidget {
@@ -112,21 +114,21 @@ class TimeLine extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Acesso',
+                AppLocalizations.of(context)!.access,
                 style: TextStyles.textForm,
               ),
             ),
             Align(
               alignment: Alignment.center,
               child: Text(
-                'Dados',
+                AppLocalizations.of(context)!.data,
                 style: TextStyles.textForm,
               ),
             ),
             Align(
               alignment: Alignment.centerRight,
               child: Text(
-                'Endereço',
+                AppLocalizations.of(context)!.address,
                 style: TextStyles.textForm,
               ),
             ),
