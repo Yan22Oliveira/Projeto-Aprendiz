@@ -15,18 +15,20 @@ class CreateAccountFirst extends StatefulWidget {
 
 class _CreateAccountFirstState extends State<CreateAccountFirst> {
 
-  final GlobalKey<FormState> _formKeyAccount = GlobalKey<FormState>(debugLabel: '_firstFormKey');
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>(debugLabel: '_firstFormKey');
 
   @override
   Widget build(BuildContext context) {
 
-    var altura = MediaQuery.of(context).size.height - MediaQuery.of(context).padding.top;
+    var tradutor = AppLocalizations.of(context);
+    final sizeConfig = SizeConfig(mediaQueryData: MediaQuery.of(context));
 
     return Scaffold(
+      backgroundColor: AppColors.background,
       appBar: AppBar(
         backgroundColor: AppColors.primary,
         title: Text(
-          AppLocalizations.of(context)!.createAccont,
+          tradutor!.createAccont,
           style: TextStyles.titleAppBar,
         ),
         elevation: 0,
@@ -34,11 +36,11 @@ class _CreateAccountFirstState extends State<CreateAccountFirst> {
       ),
       body: SingleChildScrollView(
         child: Form(
-          key: _formKeyAccount,
+          key: _formKey,
           child: GestureDetector(
             onTap: ()=> FocusScope.of(context).unfocus(),
             child: Container(
-              height: altura - 50,
+              height: sizeConfig.height(),
               color: AppColors.background,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24,),
@@ -57,31 +59,65 @@ class _CreateAccountFirstState extends State<CreateAccountFirst> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextForm(
-                          text: AppLocalizations.of(context)!.email,
+                          text: tradutor.fullName,
                         ),
                         const SizedBox(height: 8,),
                         FormGeral(
-                          labelText: AppLocalizations.of(context)!.email,
-                          keyboardType: TextInputType.emailAddress,
+                          labelText: tradutor.name,
+                          keyboardType: TextInputType.name,
                           autocorrect: false,
                         ),
                         const SizedBox(height: 16,),
                         TextForm(
-                          text: AppLocalizations.of(context)!.informYourPassword,
+                          text: tradutor.email,
                         ),
                         const SizedBox(height: 8,),
                         FormGeral(
-                          labelText: AppLocalizations.of(context)!.password,
-                          password: true,
+                          labelText: tradutor.email,
+                          keyboardType: TextInputType.emailAddress,
+                          autocorrect: false,
+                          validator: (email){
+                            if(email!.isEmpty) {
+                              return tradutor.invalidField;
+                            }else if(!Utils().isEmailValid(email)){
+                              return tradutor.invalidEmail;
+                            }
+                            return null;
+                          },
                         ),
                         const SizedBox(height: 16,),
                         TextForm(
-                          text: AppLocalizations.of(context)!.confirmPassword,
+                          text: tradutor.informYourPassword,
                         ),
                         const SizedBox(height: 8,),
                         FormGeral(
-                          labelText: AppLocalizations.of(context)!.password,
+                          labelText: tradutor.password,
                           password: true,
+                          validator: (password){
+                            if(password!.isEmpty) {
+                              return tradutor.invalidField;
+                            }else if(password.length<7){
+                              return tradutor.minimumCharacters;
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: 16,),
+                        TextForm(
+                          text: tradutor.confirmPassword,
+                        ),
+                        const SizedBox(height: 8,),
+                        FormGeral(
+                          labelText: tradutor.password,
+                          password: true,
+                          validator: (password){
+                            if(password!.isEmpty) {
+                              return tradutor.invalidField;
+                            }else if(password.length<7){
+                              return tradutor.minimumCharacters;
+                            }
+                            return null;
+                          },
                         ),
                       ],
                     ),
@@ -89,9 +125,10 @@ class _CreateAccountFirstState extends State<CreateAccountFirst> {
                       children: [
                         ButtonPrincipal(
                           onPressed: (){
-
+                            //if(_formKey.currentState!.validate())
+                            Navigator.pushNamed(context, '/createAccountSecond');
                           },
-                          text: AppLocalizations.of(context)!.next,
+                          text: tradutor.next,
                           icon: Icons.arrow_forward_outlined,
                         ),
                         const SizedBox(height: 4,),
@@ -100,14 +137,14 @@ class _CreateAccountFirstState extends State<CreateAccountFirst> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              AppLocalizations.of(context)!.alreadyHaveAnAccount,
+                              tradutor.alreadyHaveAnAccount,
                               style: TextStyles.textForm,
                             ),
                             TextButtonPrincipal(
                               onPressed: (){
-
+                                Navigator.pushReplacementNamed(context, '/');
                               },
-                              text: AppLocalizations.of(context)!.enter,
+                              text: tradutor.enter,
                               textStyle: TextStyles.textLabelButtonBold,
                             ),
                           ],

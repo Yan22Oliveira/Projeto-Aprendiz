@@ -5,9 +5,9 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../../shared/shared.dart';
 
-class CreateAccountSecond extends StatelessWidget {
+class CreateAccountThird extends StatelessWidget {
 
-  const CreateAccountSecond({Key? key}) : super(key: key);
+  const CreateAccountThird({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,69 +41,55 @@ class CreateAccountSecond extends StatelessWidget {
                     TimeLine(
                       colors: AppColors.verde,
                       firstConfirmed: true,
+                      secondConfirmed: true,
                     ),
                   ],
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
 
                     TextForm(
-                      text: tradutor.telephone,
+                      text: 'Cep',
                     ),
-                    const SizedBox(height: 8,),
-                    const FormGeral(
-                      labelText: '(00) 00000-0000',
+                    SizedBox(height: 8,),
+                    FormGeral(
+                      labelText: 'Informe seu CEP',
                     ),
-                    const SizedBox(height: 16,),
+                    SizedBox(height: 16,),
                     TextForm(
-                      text: tradutor.dateOfBirth,
+                      text: 'Endereço',
                     ),
-                    const SizedBox(height: 8,),
-                    ButtonBorda(
-                      onPressed: (){
-
-                      },
-                      text: tradutor.selectYourDate,
-                      color: AppColors.primary,
-                      icon: Icons.date_range_outlined,
+                    SizedBox(height: 8,),
+                    FormGeral(
+                      labelText: 'Informe seu endereço',
                     ),
-                    const SizedBox(height: 16,),
+                    SizedBox(height: 16,),
                     TextForm(
-                      text: tradutor.church,
+                      text: 'Número',
                     ),
-                    const SizedBox(height: 8,),
-                    ButtonBorda(
-                      onPressed: (){
-
-                      },
-                      text: tradutor.selectYourChurch,
-                      color: AppColors.primary,
-                      icon: Icons.arrow_downward_outlined,
+                    SizedBox(height: 8,),
+                    FormGeral(
+                      labelText: 'Informe seu número',
                     ),
-                    const SizedBox(height: 16,),
+                    SizedBox(height: 16,),
                     TextForm(
-                      text: tradutor.classe,
+                      text: 'Complemento',
                     ),
-                    const SizedBox(height: 8,),
-                    ButtonBorda(
-                      onPressed: (){
+                    SizedBox(height: 8,),
+                    FormGeral(
+                      labelText: 'Complemento',
+                    ),
 
-                      },
-                      text: tradutor.selectYourClass,
-                      color: AppColors.primary,
-                      icon: Icons.arrow_downward_outlined,
-                    ),
                   ],
                 ),
                 Column(
                   children: [
                     ButtonPrincipal(
                       onPressed: (){
-                        Navigator.pushNamed(context, '/createAccountThird');
+
                       },
-                      text: tradutor.next,
-                      icon: Icons.arrow_forward_outlined,
+                      text: tradutor.register,
                     ),
                     const SizedBox(height: 100,),
                   ],
