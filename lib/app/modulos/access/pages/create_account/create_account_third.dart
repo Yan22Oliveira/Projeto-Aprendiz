@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../shared/shared.dart';
 
@@ -158,7 +159,7 @@ class CreateAccountThird extends StatelessWidget {
                 children: [
                   ButtonPrincipal(
                     onPressed: (){
-
+                      Modular.to.pushNamed('/access/login');
                     },
                     text: tradutor.register,
                   ),

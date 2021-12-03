@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../shared/shared.dart';
 
@@ -92,9 +93,10 @@ class LoginPage extends StatelessWidget {
                           print('Não conectado');
                         }
 
-                        if(_formKey.currentState!.validate()){
+                        //if(_formKey.currentState!.validate()){}
 
-                        }
+                        Modular.to.navigate('/home/');
+
                       },
                       text: tradutor.authenticate,
                     ),
@@ -109,7 +111,7 @@ class LoginPage extends StatelessWidget {
                         ),
                         TextButtonPrincipal(
                           onPressed: (){
-                            Navigator.pushReplacementNamed(context, '/creatAccount');
+                            Modular.to.navigate('/access/creatAccount');
                           },
                           text: tradutor.createAccont,
                           textStyle: TextStyles.textLabelButtonBold,

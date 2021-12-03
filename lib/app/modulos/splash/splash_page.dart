@@ -37,7 +37,7 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
     Future.delayed(const Duration(seconds: 3)).then((value) async {
       //Carregar as depedências async do modular
       await Modular.isModuleReady<AppModule>();
-      Modular.to.navigate('/home/');
+      Modular.to.navigate('/access/login');
     });
 
   }

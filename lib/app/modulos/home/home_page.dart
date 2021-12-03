@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -23,15 +24,19 @@ class HomePage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
-            children: const [
+            children: [
+
               CardModulo(
                 title: 'Aluno',
                 text: 'Módulo de acesso do aluno',
                 icon: FontAwesomeIcons.graduationCap,
+                onTap: (){
+                  Modular.to.navigate('/student/');
+                },
               ),
 
               if(2==2)
-              CardModulo(
+                const CardModulo(
                 title: 'Professor',
                 text: 'Módulo de acesso do professor',
                 icon: FontAwesomeIcons.chalkboardTeacher,
@@ -39,7 +44,7 @@ class HomePage extends StatelessWidget {
               ),
 
               if(1==2)
-              CardModulo(
+                const CardModulo(
                 title: 'Professor',
                 text: 'Agurdando liberação',
                 icon: FontAwesomeIcons.chalkboardTeacher,
@@ -47,11 +52,12 @@ class HomePage extends StatelessWidget {
               ),
 
               if(2==2)
-              CardModulo(
+                const CardModulo(
                 title: 'Secretário',
                 text: 'Sistema de gestão do Projeto Aprendiz, relatórios, liberação, etc ...',
                 icon: Icons.dashboard,
               ),
+
             ],
           ),
         ),

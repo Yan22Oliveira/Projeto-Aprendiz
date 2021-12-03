@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../shared/shared.dart';
 
@@ -126,7 +127,7 @@ class _CreateAccountFirstState extends State<CreateAccountFirst> {
                         ButtonPrincipal(
                           onPressed: (){
                             //if(_formKey.currentState!.validate())
-                            Navigator.pushNamed(context, '/createAccountSecond');
+                            Modular.to.pushNamed('/access/createAccountSecond');
                           },
                           text: tradutor.next,
                           icon: Icons.arrow_forward_outlined,
@@ -142,7 +143,7 @@ class _CreateAccountFirstState extends State<CreateAccountFirst> {
                             ),
                             TextButtonPrincipal(
                               onPressed: (){
-                                Navigator.pushReplacementNamed(context, '/');
+                                Modular.to.navigate('/access/login');
                               },
                               text: tradutor.enter,
                               textStyle: TextStyles.textLabelButtonBold,

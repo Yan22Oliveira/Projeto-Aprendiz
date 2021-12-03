@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../shared/shared.dart';
 
@@ -100,7 +101,7 @@ class CreateAccountSecond extends StatelessWidget {
                   children: [
                     ButtonPrincipal(
                       onPressed: (){
-                        Navigator.pushNamed(context, '/createAccountThird');
+                        Modular.to.pushNamed('/access/createAccountThird');
                       },
                       text: tradutor.next,
                       icon: Icons.arrow_forward_outlined,
