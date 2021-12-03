@@ -42,7 +42,9 @@ dependencies:
   provider: ^6.0.1
   google_fonts: ^2.1.0
   shared_preferences: ^2.0.8
-  splash_screen_view: ^3.0.0
+  connectivity_plus: ^2.0.2
+  background_fetch: ^1.0.1
+
 
 dev_dependencies:
   flutter_test:

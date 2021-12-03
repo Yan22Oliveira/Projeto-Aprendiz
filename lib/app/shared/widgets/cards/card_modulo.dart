@@ -23,7 +23,7 @@ class CardModulo extends StatelessWidget {
       children: [
         Card(
           color: aguardandoLiberacao
-              ?AppColors.cinzaClaro
+              ?AppColors.greyLight
               :AppColors.background,
           elevation: aguardandoLiberacao?0:3,
           shape: RoundedRectangleBorder(
@@ -39,7 +39,7 @@ class CardModulo extends StatelessWidget {
                   width: 80,
                   decoration: BoxDecoration(
                     color: aguardandoLiberacao
-                        ?AppColors.cinzaEscuro
+                        ?AppColors.grey
                         :AppColors.orange,
                     borderRadius: BorderRadius.circular(8),
                   ),

@@ -12,7 +12,7 @@ class ButtonPrincipal extends StatelessWidget {
   const ButtonPrincipal({
     required this.text,
     required this.onPressed,
-    this.color = AppColors.verde,
+    this.color = AppColors.green,
     this.icon,
     Key? key,
   }) : super(key: key);

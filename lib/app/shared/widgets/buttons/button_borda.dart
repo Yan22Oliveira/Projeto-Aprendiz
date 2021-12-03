@@ -6,15 +6,15 @@ import '../../shared.dart';
 
 class ButtonBorda extends StatelessWidget {
 
-  final String text;
+  final String? text;
   final VoidCallback? onPressed;
   final Color color;
   final IconData? icon;
 
   const ButtonBorda({
-    required this.text,
+    this.text,
     this.onPressed,
-    this.color = AppColors.verde,
+    this.color = AppColors.green,
     this.icon,
     Key? key,
   }) : super(key: key);
@@ -38,13 +38,13 @@ class ButtonBorda extends StatelessWidget {
       child: SizedBox(
         height: 36,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 0),
           child: Stack(
             children: [
               Container(
                 alignment: Alignment.center,
                 child: Text(
-                  text,
+                  text??'',
                   style: GoogleFonts.lexendDeca(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
@@ -53,7 +53,7 @@ class ButtonBorda extends StatelessWidget {
                 ),
               ),
               Container(
-                alignment: Alignment.centerRight,
+                alignment: text!=null?Alignment.centerRight:Alignment.center,
                 child: Icon(
                   icon,
                   color: color,

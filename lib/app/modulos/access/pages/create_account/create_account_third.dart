@@ -13,7 +13,6 @@ class CreateAccountThird extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var tradutor = AppLocalizations.of(context);
-    final sizeConfig = SizeConfig(mediaQueryData: MediaQuery.of(context));
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -28,74 +27,145 @@ class CreateAccountThird extends StatelessWidget {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: SizedBox(
-          height: sizeConfig.height(),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24,),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: const [
-                    SizedBox(height: 32,),
-                    TimeLine(
-                      colors: AppColors.verde,
-                      firstConfirmed: true,
-                      secondConfirmed: true,
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24,),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: const [
+                  SizedBox(height: 32,),
+                  TimeLine(
+                    colors: AppColors.green,
+                    firstConfirmed: true,
+                    secondConfirmed: true,
+                  ),
+                  SizedBox(height: 32,),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children:  [
 
-                    TextForm(
-                      text: 'Cep',
-                    ),
-                    SizedBox(height: 8,),
-                    FormGeral(
-                      labelText: 'Informe seu CEP',
-                    ),
-                    SizedBox(height: 16,),
-                    TextForm(
-                      text: 'Endereço',
-                    ),
-                    SizedBox(height: 8,),
-                    FormGeral(
-                      labelText: 'Informe seu endereço',
-                    ),
-                    SizedBox(height: 16,),
-                    TextForm(
-                      text: 'Número',
-                    ),
-                    SizedBox(height: 8,),
-                    FormGeral(
-                      labelText: 'Informe seu número',
-                    ),
-                    SizedBox(height: 16,),
-                    TextForm(
-                      text: 'Complemento',
-                    ),
-                    SizedBox(height: 8,),
-                    FormGeral(
-                      labelText: 'Complemento',
-                    ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Expanded(
+                        flex: 80,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            TextForm(
+                              text: 'Cep',
+                            ),
+                            SizedBox(height: 8,),
+                            FormGeral(
+                              labelText: 'Informe seu CEP',
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 8,),
+                      Expanded(
+                        flex: 20,
+                        child: ButtonBorda(
+                          onPressed: (){
 
-                  ],
-                ),
-                Column(
-                  children: [
-                    ButtonPrincipal(
-                      onPressed: (){
+                          },
+                          icon: Icons.search,
+                          color: AppColors.primary,
+                        ),
+                      ),
 
-                      },
-                      text: tradutor.register,
-                    ),
-                    const SizedBox(height: 100,),
-                  ],
-                ),
-              ],
-            ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 16,),
+                  const TextForm(
+                    text: 'Endereço',
+                  ),
+                  const SizedBox(height: 8,),
+                  const FormGeral(
+                    labelText: 'Informe seu endereço',
+                  ),
+                  const SizedBox(height: 16,),
+                  const TextForm(
+                    text: 'Número',
+                  ),
+                  const SizedBox(height: 8,),
+                  const FormGeral(
+                    labelText: 'Informe seu número',
+                  ),
+                  const SizedBox(height: 16,),
+                  const TextForm(
+                    text: 'Complemento',
+                  ),
+                  const SizedBox(height: 8,),
+                  const FormGeral(
+                    labelText: 'Complemento',
+                  ),
+                  const SizedBox(height: 16,),
+                  const TextForm(
+                    text: 'Bairro',
+                  ),
+                  const SizedBox(height: 8,),
+                  const FormGeral(
+                    labelText: 'Informe seu bairro',
+                  ),
+                  const SizedBox(height: 16,),
+                  Row(
+                    children: [
+                      Expanded(
+                        flex: 60,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            TextForm(
+                              text: 'Cidade',
+                            ),
+                            SizedBox(height: 8,),
+                            FormGeral(
+                              labelText: 'Cidade',
+                              enabled: false,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: 8,),
+                      Expanded(
+                        flex: 40,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            TextForm(
+                              text: 'Estado',
+                            ),
+                            SizedBox(height: 8,),
+                            FormGeral(
+                              labelText: 'UF',
+                              enabled: false,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+
+                ],
+              ),
+              const SizedBox(height: 40,),
+              Column(
+                children: [
+                  ButtonPrincipal(
+                    onPressed: (){
+
+                    },
+                    text: tradutor.register,
+                  ),
+                  const SizedBox(height: 100,),
+                ],
+              ),
+            ],
           ),
         ),
       ),

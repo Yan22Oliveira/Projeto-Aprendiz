@@ -39,7 +39,7 @@ class CreateAccountSecond extends StatelessWidget {
                   children: const [
                     SizedBox(height: 32,),
                     TimeLine(
-                      colors: AppColors.verde,
+                      colors: AppColors.green,
                       firstConfirmed: true,
                     ),
                   ],

@@ -51,7 +51,7 @@ class _CreateAccountFirstState extends State<CreateAccountFirst> {
                       children: const [
                         SizedBox(height: 32,),
                         TimeLine(
-                          colors: AppColors.verde,
+                          colors: AppColors.green,
                         ),
                       ],
                     ),
