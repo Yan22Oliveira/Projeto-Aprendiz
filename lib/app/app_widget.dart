@@ -26,8 +26,12 @@ class _AppWidgetState extends State<AppWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => AppLocale(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => AppLocale(),
+        ),
+      ],
       child: Consumer<AppLocale>(
         builder: (context, locale, child){
           return MaterialApp(
@@ -45,10 +49,7 @@ class _AppWidgetState extends State<AppWidget> {
               Locale.fromSubtags(languageCode: 'zh'),
             ],
             locale: locale.locale,
-            theme: ThemeData(
-              primarySwatch: Colors.orange,
-              primaryColor: AppColors.primary,
-            ),
+            theme: AppThemeData.themeData,
           ).modular();
         },
       ),

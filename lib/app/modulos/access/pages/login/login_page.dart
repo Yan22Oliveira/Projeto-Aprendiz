@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../shared/shared.dart';
@@ -83,15 +82,6 @@ class LoginPage extends StatelessWidget {
                     const SizedBox(height: 40,),
                     ButtonPrincipal(
                       onPressed: () async {
-
-                        var connectivityResult = await (Connectivity().checkConnectivity());
-                        if (connectivityResult == ConnectivityResult.mobile) {
-                          print('Mobile');
-                        } else if (connectivityResult == ConnectivityResult.wifi) {
-                          print('Wi-Fi');
-                        }else{
-                          print('Não conectado');
-                        }
 
                         //if(_formKey.currentState!.validate()){}
 

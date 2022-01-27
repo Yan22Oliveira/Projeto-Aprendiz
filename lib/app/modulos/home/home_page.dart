@@ -44,18 +44,24 @@ class HomePage extends StatelessWidget {
               ),
 
               if(1==2)
-                const CardModulo(
+                CardModulo(
                 title: 'Professor',
                 text: 'Agurdando liberação',
                 icon: FontAwesomeIcons.chalkboardTeacher,
                 aguardandoLiberacao: true,
+                onTap: (){
+
+                },
               ),
 
               if(2==2)
-                const CardModulo(
+                CardModulo(
                 title: 'Secretário',
                 text: 'Sistema de gestão do Projeto Aprendiz, relatórios, liberação, etc ...',
                 icon: Icons.dashboard,
+                onTap: (){
+                  Modular.to.navigate('/secretary/');
+                },
               ),
 
             ],

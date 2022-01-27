@@ -1,4 +1,8 @@
+export './backend/backend.dart';
+
 export './formatters/formatters.dart';
+
+export './global/global_information.dart';
 
 export './languages/app_locale.dart';
 
