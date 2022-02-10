@@ -1,0 +1,1 @@
+export './pastor_model.dart';

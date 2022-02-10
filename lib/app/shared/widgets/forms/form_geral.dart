@@ -54,7 +54,6 @@ class _FormGeralState extends State<FormGeral> {
     return Theme(
       data: ThemeData(
         hintColor: Colors.grey.shade800,
-        cursorColor: Colors.black,
         primarySwatch: Colors.grey,
       ),
       child: TextFormField(

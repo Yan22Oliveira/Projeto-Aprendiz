@@ -1,3 +1,4 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:intl/intl.dart';
 
 class Formatters {
@@ -20,6 +21,11 @@ class Formatters {
   ///Retirar os caracteres do CEP
   String clearCepCharacters(String cep){
     return cep.replaceAll('-', '').replaceAll('.', '');
+  }
+
+  ///Formatar Telefone
+  String formatPhone(String phone){
+    return UtilBrasilFields.obterTelefone(phone);
   }
 
 }

@@ -6,6 +6,7 @@ class AppColors{
   static const orange      = Color(0xFFF7972E);
   static const creme       = Color(0xFFFFFFDB);
   static const green       = Color(0xFF319124);
+  static const blue        = Color(0xFF245B92);
   static const delete      = Color(0xFFE83F5B);
   static const stroke      = Color(0xFFE3E3E6);
   static const shape       = Color(0xFFFAFAFC);

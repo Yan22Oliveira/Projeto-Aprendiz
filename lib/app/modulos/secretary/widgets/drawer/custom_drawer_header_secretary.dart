@@ -20,11 +20,12 @@ class CustomDrawerHeaderSecretary extends StatelessWidget {
           Container(
             color: AppColors.background,
             alignment: Alignment.center,
+            padding: const EdgeInsets.all(4),
             child: Center(
               child: Image.asset(
-                AppImages.logoDiv,
-                height: 180,
-                fit: BoxFit.scaleDown,
+                AppImages.logo,
+                height: 170,
+                fit: BoxFit.fitWidth,
                 errorBuilder: (context, url, error) => const SizedBox(
                   child: Icon(
                     Icons.error,

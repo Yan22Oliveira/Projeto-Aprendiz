@@ -19,9 +19,10 @@ class SecretaryPage extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         children: const <Widget>[
           HomeSecretaryPage(),
-          HomeSecretaryPage(),
-          HomeSecretaryPage(),
-          ShepherdPage(),
+          DashboardPage(),
+          AnnouncementsPage(),
+          PastorPage(),
+          ChurchPage(),
         ],
       ),
     );

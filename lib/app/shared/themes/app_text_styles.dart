@@ -15,6 +15,31 @@ class TextStyles {
     fontWeight: FontWeight.w600,
     color: AppColors.secundary,
   );
+  static final titleAnnouncemnts = GoogleFonts.lexendDeca(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: AppColors.secundary,
+  );
+  static final subTitleAnnouncemnts = GoogleFonts.lexendDeca(
+    fontSize: 17,
+    fontWeight: FontWeight.w400,
+    color: AppColors.secundary,
+  );
+  static final titleCardLight = GoogleFonts.lexendDeca(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: AppColors.secundary,
+  );
+  static final textDashBoard = GoogleFonts.inter(
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
+    color: AppColors.background,
+  );
+  static final text = GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppColors.secundary,
+  );
   static final textCard = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w400,

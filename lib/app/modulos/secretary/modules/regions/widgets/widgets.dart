@@ -1,0 +1,1 @@
+export './datatable/regions_datatable_web.dart';

@@ -1,16 +1,22 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:dio/dio.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import './modulos/modulos.dart';
+import './shared/shared.dart';
 
 class AppModule extends Module{
 
   @override
   List<Bind> get binds => [
     AsyncBind ((i) =>  SharedPreferences.getInstance()),
+    Bind.factory((i) => Connectivity()),
     Bind.factory((i) => Dio()),
+
+    Bind.factory((i) => ConnectivityService(i())),
+
   ];
 
   @override

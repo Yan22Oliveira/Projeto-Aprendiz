@@ -1,1 +1,0 @@
-export './shepherd_model.dart';

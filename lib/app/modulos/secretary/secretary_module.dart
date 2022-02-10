@@ -6,8 +6,11 @@ class SecretaryModule extends Module{
 
   @override
   List<Bind> get binds => [
-    Bind.singleton((i) => ShepherdBloc(i())),
-    Bind.factory((i)   => ShepherdRepository(i())),
+    Bind.singleton((i) => AnnouncementsBloc(i(),i())),
+    Bind.factory((i)   => AnnouncementsRepository(i())),
+
+    Bind.singleton((i) => PastorBloc(i(),i())),
+    Bind.factory((i)   => PastorRepository(i())),
   ];
 
   @override
@@ -15,9 +18,50 @@ class SecretaryModule extends Module{
     ChildRoute('/',
       child: (_, args) => SecretaryPage(),
     ),
+
     ModuleRoute(
-      '/home_secretary',
-      module: HomeSecretaryModule(),
+      '/announcements',
+      module: AnnouncementsModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/create_announcemnts',
+      module: CreateAnnouncemntsModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/view_announcements',
+      module: ViewAnnouncementsModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/dashboard',
+      module: DashboardModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/dashboard',
+      module: DashboardModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/pastor',
+      module: PastorModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/create_pastor',
+      module: CreatePastorModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/edit_pastor',
+      module: EditPastorModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/church',
+      module: ChurchModule(),
       transition: TransitionType.fadeIn,
     ),
   ];

@@ -45,7 +45,7 @@ class DrawerTileSecretary extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: Icon(
                   iconData,
-                  size: 28,
+                  size: 26,
                   color: curPage == page ? AppColors.primary : Colors.grey[700],
                 ),
               ),

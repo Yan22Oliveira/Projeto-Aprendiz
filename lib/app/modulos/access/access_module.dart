@@ -12,17 +12,17 @@ class AccessModule extends Module {
     ChildRoute('/', child: (_, args) => const AccessPage()),
     ChildRoute('/login', child: (context, args) => LoginPage()),
     ChildRoute(
-      '/creatAccount',
+      '/creat_account',
       child: (context, args) => const CreateAccountFirst(),
       transition: TransitionType.fadeIn,
     ),
     ChildRoute(
-      '/createAccountSecond',
+      '/create_account_second',
       child: (context, args) => const CreateAccountSecond(),
       transition: TransitionType.fadeIn,
     ),
     ChildRoute(
-      '/createAccountThird',
+      '/create_account_third',
       child: (context, args) => const CreateAccountThird(),
       transition: TransitionType.fadeIn,
     ),

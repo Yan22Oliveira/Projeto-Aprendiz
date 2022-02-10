@@ -1,11 +1,16 @@
 export './buttons/button_principal.dart';
 export './buttons/button_borda.dart';
+export './buttons/button_simples.dart';
 
 export './cards/card_modulo.dart';
 
 export './dropdown_buttons/dropdown_button_locale.dart';
 
+export './erros/erro_page.dart';
+
 export './forms/form_geral.dart';
+
+export './popup/popup_fail_connection.dart';
 
 export './text_buttons/text_button_principal.dart';
 

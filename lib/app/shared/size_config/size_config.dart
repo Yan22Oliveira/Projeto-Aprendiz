@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SizeConfig {
 
   final MediaQueryData mediaQueryData;
-
   SizeConfig({required this.mediaQueryData});
 
   static SizeConfig of(BuildContext context) =>
@@ -14,6 +12,10 @@ class SizeConfig {
   double height(){
     double appbar = AppBar().preferredSize.height;//Pegar o tamanho da AppBar
     return mediaQueryData.size.height - mediaQueryData.padding.top - appbar;
+  }
+
+  double width(){
+    return mediaQueryData.size.width;
   }
 
   double dynamicScaleSize({double? size, double? scaleFactorTablet, double? scaleFactorMini}) {

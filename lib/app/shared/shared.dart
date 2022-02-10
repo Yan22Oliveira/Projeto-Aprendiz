@@ -8,6 +8,8 @@ export './languages/app_locale.dart';
 
 export './models/models.dart';
 
+export './service/service.dart';
+
 export './size_config/size_config.dart';
 
 export './themes/themes.dart';
