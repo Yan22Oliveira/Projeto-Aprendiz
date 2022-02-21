@@ -5,11 +5,11 @@ import '../../../../../shared/shared.dart';
 
 class PastorBloc extends Bloc<PastorEvent,PastorState>{
 
-  final PastorRepository listaConteudosRepository;
+  final PastorRepository pastorsRepository;
   final ConnectivityService _connectivityService;
 
   PastorBloc(
-      this.listaConteudosRepository,
+      this.pastorsRepository,
       this._connectivityService,
       ) : super(PastorInitial()){
     on<PesquisarPastores>(listaPastors);
@@ -21,13 +21,13 @@ class PastorBloc extends Bloc<PastorEvent,PastorState>{
 
     if(await _connectivityService.checkConnectivity()){
       try{
-        List<PastorModel> lista = await listaConteudosRepository.getPastors();
+        List<PastorModel> lista = await pastorsRepository.getPastors();
         emit(PastorSucessful(lista));
       }catch(e){
-        emit(PastorError('Erro ao carregar os conteúdos!'));
+        emit(PastorError('Erro ao carregar!'));
       }
     }else{
-      emit(PastorNoConnection('verifique a sua conexãocom a internet'));
+      emit(PastorNoConnection('Verifique a sua conexão com a internet'));
     }
 
   }

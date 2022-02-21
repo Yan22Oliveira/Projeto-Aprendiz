@@ -1,0 +1,1 @@
+export './teacher_model.dart';

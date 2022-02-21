@@ -5,7 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../area.dart';
+import '../../../../secretary.dart';
 import '../../../../../../shared/shared.dart';
 
 class AreaDataTableMobile extends StatefulWidget {

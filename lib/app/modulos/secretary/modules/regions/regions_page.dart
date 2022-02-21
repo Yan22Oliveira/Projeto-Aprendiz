@@ -55,7 +55,6 @@ class _RegionsPageState extends State<RegionsPage> {
   @override
   Widget build(BuildContext context) {
 
-    final sizeConfig = SizeConfig(mediaQueryData: MediaQuery.of(context));
     var tradutor = AppLocalizations.of(context);
 
     return Scaffold(
@@ -74,7 +73,7 @@ class _RegionsPageState extends State<RegionsPage> {
           color: AppColors.background,
         ),
         onPressed: (){
-          //Modular.to.pushNamed('/secretary/create_pastor/');
+          Modular.to.pushNamed('/secretary/church/create_regions/');
         },
       ),
       body: BlocBuilder<RegionsBloc,RegionsState>(

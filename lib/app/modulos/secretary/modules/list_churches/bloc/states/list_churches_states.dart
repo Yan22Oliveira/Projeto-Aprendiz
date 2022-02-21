@@ -1,4 +1,4 @@
-import '../../list_churches.dart';
+import '../../../../../../shared/shared.dart';
 
 abstract class ListChurchesState {}
 

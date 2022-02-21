@@ -74,7 +74,7 @@ class _AreaPageState extends State<AreaPage> {
           color: AppColors.background,
         ),
         onPressed: (){
-          //Modular.to.pushNamed('/secretary/create_pastor/');
+          Modular.to.pushNamed('/secretary/church/create_areas/');
         },
       ),
       body: BlocBuilder<AreaBloc,AreaState>(
@@ -95,7 +95,7 @@ class _AreaPageState extends State<AreaPage> {
 
             List<AreaModel> listaAreas = state.lista;
 
-            if(sizeConfig.isTablet()){
+            if(!sizeConfig.isMobile()){
               return AreaDataTableWeb(
                 listaAreas: listaAreas,
               );

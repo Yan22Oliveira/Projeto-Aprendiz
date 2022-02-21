@@ -35,9 +35,6 @@ class AppLocale extends ChangeNotifier {
 
 }
 
-
-
-
 ///Para selecionar o idioma
 
 //  var language = Provider.of<AppLocale>(context);

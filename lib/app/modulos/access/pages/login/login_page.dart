@@ -31,7 +31,7 @@ class LoginPage extends StatelessWidget {
                 key: _formKey,
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(
-                    maxWidth: 500,
+                    maxWidth: 400,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

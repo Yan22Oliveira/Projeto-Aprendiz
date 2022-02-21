@@ -1,0 +1,1 @@
+export './cards/card_home.dart';

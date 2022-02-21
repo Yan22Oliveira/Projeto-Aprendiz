@@ -59,61 +59,69 @@ class _PastorPageState extends State<PastorPage> {
     var tradutor = AppLocalizations.of(context);
     final sizeConfig = SizeConfig(mediaQueryData: MediaQuery.of(context));
 
-    return Scaffold(
-      backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: Text(
-          tradutor!.pastors,
-          style: TextStyles.titleAppBar,
-        ),
-      ),
-      drawer: const CustomDrawerSecretary(),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.primary,
-        tooltip: tradutor.register,
-        child: const Icon(
-          Icons.add,
-          color: AppColors.background,
-        ),
-        onPressed: (){
-          Modular.to.pushNamed('/secretary/create_pastor/');
-        },
-      ),
-      body: BlocBuilder<PastorBloc,PastorState>(
-        bloc: _bloc,
-        builder: (context,state){
-
-          if (state is PastorLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (state is PastorError) {
-            return Center(
-              child: ErroPage(
-                text: tradutor.errorLoadingPastorsList,
+    return Row(
+      children: [
+        if(!sizeConfig.isMobile())
+          const CustomDrawerSecretary(),
+        Expanded(
+          child: Scaffold(
+            backgroundColor: AppColors.background,
+            appBar: AppBar(
+              title: Text(
+                tradutor!.pastors,
+                style: TextStyles.titleAppBar,
               ),
-            );
-          }else if(state is PastorSucessful){
+            ),
+            drawer: sizeConfig.isMobile()? const CustomDrawerSecretary():null,
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: AppColors.primary,
+              tooltip: tradutor.register,
+              child: const Icon(
+                Icons.add,
+                color: AppColors.background,
+              ),
+              onPressed: (){
+                Modular.to.pushNamed('/secretary/create_pastor/');
+              },
+            ),
+            body: BlocBuilder<PastorBloc,PastorState>(
+              bloc: _bloc,
+              builder: (context,state){
 
-            List<PastorModel> listaShephers = state.lista;
+                if (state is PastorLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state is PastorError) {
+                  return Center(
+                    child: ErroPage(
+                      text: tradutor.errorLoadingPastorsList,
+                    ),
+                  );
+                }else if(state is PastorSucessful){
 
-            if(sizeConfig.isTablet()){
-              return PastorDataTableWeb(
-                listaShephers: listaShephers,
-              );
-            }else{
-              return PastorDataTableMobile(
-                listaShephers: listaShephers,
-              );
-            }
+                  List<PastorModel> listaShephers = state.lista;
 
-          }
+                  if(!sizeConfig.isMobile()){
+                    return PastorDataTableWeb(
+                      listaShephers: listaShephers,
+                    );
+                  }else{
+                    return PastorDataTableMobile(
+                      listaShephers: listaShephers,
+                    );
+                  }
 
-          return Container();
+                }
 
-        },
-      ),
+                return Container();
 
+              },
+            ),
+
+          ),
+        ),
+      ],
     );
   }
 }

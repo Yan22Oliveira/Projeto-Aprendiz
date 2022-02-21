@@ -55,6 +55,8 @@ class _ListChurchesPageState extends State<ListChurchesPage> {
   @override
   Widget build(BuildContext context) {
 
+    final controller = context.watch<CreateChurchController>();
+
     final sizeConfig = SizeConfig(mediaQueryData: MediaQuery.of(context));
     var tradutor = AppLocalizations.of(context);
 
@@ -74,7 +76,8 @@ class _ListChurchesPageState extends State<ListChurchesPage> {
           color: AppColors.background,
         ),
         onPressed: (){
-          //Modular.to.pushNamed('/secretary/create_pastor/');
+          controller.region = null;
+          Modular.to.pushNamed('/secretary/church/create_churches/');
         },
       ),
       body: BlocBuilder<ListChurchesBloc,ListChurchesState>(
@@ -95,7 +98,7 @@ class _ListChurchesPageState extends State<ListChurchesPage> {
 
             List<ChurchModel> listChurches = state.lista;
 
-            if(sizeConfig.isTablet()){
+            if(!sizeConfig.isMobile()){
               return ListChurchesDataTableWeb(
                 listChurches: listChurches,
               );

@@ -22,6 +22,14 @@ class ListChurchesDataTableWeb extends StatefulWidget {
 
 class _ListChurchesDataTableWebeState extends State<ListChurchesDataTableWeb> {
 
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -30,6 +38,7 @@ class _ListChurchesDataTableWebeState extends State<ListChurchesDataTableWeb> {
     return Padding(
       padding: const EdgeInsets.all(24),
       child: DataTable2(
+        scrollController: _scrollController,
         headingRowColor: MaterialStateProperty.all(AppColors.orange),
         headingRowHeight: 48,
         horizontalMargin: 24,

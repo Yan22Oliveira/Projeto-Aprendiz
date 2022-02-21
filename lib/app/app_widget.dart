@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:provider/provider.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import './shared/shared.dart';
+import './modulos/modulos.dart';
 
 class AppWidget extends StatefulWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -28,6 +30,12 @@ class _AppWidgetState extends State<AppWidget> {
       providers: [
         ChangeNotifierProvider(
           create: (_) => AppLocale(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CreateChurchController(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => CreateProjetoController(),
         ),
       ],
       child: Consumer<AppLocale>(

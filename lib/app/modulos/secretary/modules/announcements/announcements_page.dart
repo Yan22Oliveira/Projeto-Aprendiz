@@ -56,79 +56,88 @@ class _AnnouncementsPageState extends State<AnnouncementsPage> {
   Widget build(BuildContext context) {
 
     var tradutor = AppLocalizations.of(context);
+    final sizeConfig = SizeConfig(mediaQueryData: MediaQuery.of(context));
 
-    return Scaffold(
-      backgroundColor: AppColors.greyLight,
-      appBar: AppBar(
-        title: Text(
-          tradutor!.announcements,
-          style: TextStyles.titleAppBar,
+    return Row(
+      children: [
+        if(!sizeConfig.isMobile())
+          const CustomDrawerSecretary(),
+        Expanded(
+          child: Scaffold(
+            backgroundColor: AppColors.greyLight,
+            appBar: AppBar(
+              title: Text(
+                tradutor!.announcements,
+                style: TextStyles.titleAppBar,
+              ),
+            ),
+            drawer: sizeConfig.isMobile()? const CustomDrawerSecretary():null,
+            floatingActionButton: FloatingActionButton(
+              backgroundColor: AppColors.primary,
+              tooltip: tradutor.createAnnouncement,
+              child: const Icon(
+                Icons.add,
+                color: AppColors.background,
+              ),
+              onPressed: (){
+                Modular.to.pushNamed(
+                  '/secretary/create_announcemnts/',
+                );
+              },
+            ),
+            body: BlocBuilder<AnnouncementsBloc,AnnouncementsState>(
+                bloc: _bloc,
+                builder: (context,state){
+
+                  if (state is AnnouncementsLoading) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else if (state is AnnouncementsError) {
+                    return Center(
+                      child: ErroPage(
+                        text: tradutor.errorLoadingAnnouncementsList,
+                      ),
+                    );
+                  }else if(state is AnnouncementsSucessful){
+
+                    List<AnnouncementsModel> listaAnnouncements = state.lista;
+
+                    return Container(
+                      alignment: Alignment.topCenter,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(
+                          maxWidth: 600,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(24),
+                          child: ListView.builder(
+                            itemCount: listaAnnouncements.length,
+                            itemBuilder: (context, index){
+                              return CardAnnouncements(
+                                announcementsModel: listaAnnouncements[index],
+                                onTap: (){
+                                  Modular.to.pushNamed(
+                                    '/secretary/view_announcements/',
+                                    arguments: listaAnnouncements[index],
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    );
+
+                  }
+
+                  return Container();
+
+              }
+            ),
+          ),
         ),
-      ),
-      drawer: const CustomDrawerSecretary(),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.primary,
-        tooltip: tradutor.createAnnouncement,
-        child: const Icon(
-          Icons.add,
-          color: AppColors.background,
-        ),
-        onPressed: (){
-          Modular.to.pushNamed(
-            '/secretary/create_announcemnts/',
-          );
-        },
-      ),
-      body: BlocBuilder<AnnouncementsBloc,AnnouncementsState>(
-          bloc: _bloc,
-          builder: (context,state){
-
-            if (state is AnnouncementsLoading) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state is AnnouncementsError) {
-              return Center(
-                child: ErroPage(
-                  text: tradutor.errorLoadingAnnouncementsList,
-                ),
-              );
-            }else if(state is AnnouncementsSucessful){
-
-              List<AnnouncementsModel> listaAnnouncements = state.lista;
-
-              return Container(
-                alignment: Alignment.topCenter,
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    maxWidth: 600,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(24),
-                    child: ListView.builder(
-                      itemCount: listaAnnouncements.length,
-                      itemBuilder: (context, index){
-                        return CardAnnouncements(
-                          announcementsModel: listaAnnouncements[index],
-                          onTap: (){
-                            Modular.to.pushNamed(
-                              '/secretary/view_announcements/',
-                              arguments: listaAnnouncements[index],
-                            );
-                          },
-                        );
-                      },
-                    ),
-                  ),
-                ),
-              );
-
-            }
-
-            return Container();
-
-        }
-      ),
+      ],
     );
 
   }

@@ -8,8 +8,8 @@ import './app/app_widget.dart';
 void main() {
   return runApp(
     ModularApp(
-        module: AppModule(),
-        child: const AppWidget(),
+      module: AppModule(),
+      child: const AppWidget(),
     ),
   );
 }

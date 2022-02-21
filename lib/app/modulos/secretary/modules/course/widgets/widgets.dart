@@ -1,0 +1,1 @@
+export './datatable/course_datatable_web.dart';

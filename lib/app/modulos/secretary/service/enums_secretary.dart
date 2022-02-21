@@ -7,6 +7,10 @@ enum EnumsSecretary {
 
   comunicados,
 
+  alunos,
+
+  professores,
+
   pastores,
 
   igrejas,

@@ -5,7 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../regions.dart';
+import '../../../../secretary.dart';
 import '../../../../../../shared/shared.dart';
 
 class RegionsDataTableWeb extends StatefulWidget {
@@ -22,6 +22,14 @@ class RegionsDataTableWeb extends StatefulWidget {
 
 class _RegionsDataTableWebeState extends State<RegionsDataTableWeb> {
 
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -30,6 +38,7 @@ class _RegionsDataTableWebeState extends State<RegionsDataTableWeb> {
     return Padding(
       padding: const EdgeInsets.all(24),
       child: DataTable2(
+        scrollController: _scrollController,
         headingRowColor: MaterialStateProperty.all(AppColors.orange),
         headingRowHeight: 48,
         horizontalMargin: 24,

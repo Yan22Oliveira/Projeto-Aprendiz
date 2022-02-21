@@ -50,6 +50,11 @@ class TextStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.background,
   );
+  static final textDropdownButton = GoogleFonts.lexendDeca(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: AppColors.primary,
+  );
   static final textForm = GoogleFonts.lexendDeca(
     fontSize: 15,
     fontWeight: FontWeight.w600,

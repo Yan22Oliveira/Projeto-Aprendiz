@@ -5,11 +5,11 @@ import '../../../../../shared/shared.dart';
 
 class ListChurchesBloc extends Bloc<ListChurchesEvent,ListChurchesState>{
 
-  final ListChurchesRepository areaRepository;
+  final ListChurchesRepository listChurchesRepository;
   final ConnectivityService _connectivityService;
 
   ListChurchesBloc(
-      this.areaRepository,
+      this.listChurchesRepository,
       this._connectivityService,
       ) : super(ListChurchesInitial()){
     on<PesquisarListChurches>(listaListChurches);
@@ -21,7 +21,7 @@ class ListChurchesBloc extends Bloc<ListChurchesEvent,ListChurchesState>{
 
     if(await _connectivityService.checkConnectivity()){
       try{
-        List<ChurchModel> lista = await areaRepository.getListChurches();
+        List<ChurchModel> lista = await listChurchesRepository.getListChurches();
         emit(ListChurchesSucessful(lista));
       }catch(e){
         emit(ListChurchesError('Erro ao carregar as Igrejas!'));

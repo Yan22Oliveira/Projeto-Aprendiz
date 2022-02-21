@@ -5,11 +5,11 @@ import '../../../../../shared/shared.dart';
 
 class AnnouncementsBloc extends Bloc<AnnouncementsEvent,AnnouncementsState>{
 
-  final AnnouncementsRepository listaConteudosRepository;
+  final AnnouncementsRepository announcementsRepository;
   final ConnectivityService _connectivityService;
 
   AnnouncementsBloc(
-      this.listaConteudosRepository,
+      this.announcementsRepository,
       this._connectivityService,
       ) : super(AnnouncementsInitial()){
     on<PesquisarComunicados>(listaAnnouncementss);
@@ -21,7 +21,7 @@ class AnnouncementsBloc extends Bloc<AnnouncementsEvent,AnnouncementsState>{
 
     if(await _connectivityService.checkConnectivity()){
       try{
-        List<AnnouncementsModel> lista = await listaConteudosRepository.getAnnouncements();
+        List<AnnouncementsModel> lista = await announcementsRepository.getAnnouncements();
         emit(AnnouncementsSucessful(lista));
       }catch(e){
         emit(AnnouncementsError('Erro ao carregar os comunicados!'));

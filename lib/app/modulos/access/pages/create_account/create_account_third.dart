@@ -32,7 +32,7 @@ class CreateAccountThird extends StatelessWidget {
           color: AppColors.background,
           child: ConstrainedBox(
             constraints: const BoxConstraints(
-              maxWidth: 500,
+              maxWidth: 400,
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24,),

@@ -24,7 +24,7 @@ class SizeConfig {
       return size! * scaleFactor;
     }
 
-    if(isMini()) {
+    if(isMobile()) {
       final scaleFactor = scaleFactorMini ?? 0.8;
       return size! * scaleFactor;
     }
@@ -33,16 +33,23 @@ class SizeConfig {
   }
 
   /// Define o tipo de dispositivo com base em pixels de dispositivo lógico.
-  /// Mais de 600 significa que é um tablet
-  bool isTablet() {
-    final shortestSide = mediaQueryData.size.shortestSide;
-    return shortestSide > 600;
+
+  /// Mais de 1100 significa que é um web
+  bool isWeb() {
+    final shortestSide = mediaQueryData.size.width;
+    return shortestSide >= 1100;
   }
 
-  /// Define o tipo de dispositivo com base em pixels de dispositivo lógico.
-  /// Menor ou igual a 320 significa que é um mini dispositivo
-  bool isMini() {
-    final shortestSide = mediaQueryData.size.shortestSide;
-    return shortestSide <= 320;
+  /// Mais de 850 significa que é um tablet
+  bool isTablet() {
+    final shortestSide = mediaQueryData.size.width;
+    return shortestSide < 1100 && shortestSide >= 850;
   }
+
+  /// Menor que 850 significa que é um Mobile
+  bool isMobile() {
+    final shortestSide = mediaQueryData.size.width;
+    return shortestSide < 850;
+  }
+
 }

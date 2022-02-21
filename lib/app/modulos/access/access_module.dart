@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import './access.dart';
 
 class AccessModule extends Module {
+
   @override
   List<Bind> binds = [
   ];

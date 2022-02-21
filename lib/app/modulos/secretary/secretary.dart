@@ -1,4 +1,10 @@
+export './bloc/bloc.dart';
+
+export './models/models.dart';
+
 export './modules/modules.dart';
+
+export './repository/repository.dart';
 
 export './service/service.dart';
 

@@ -22,9 +22,35 @@ class ChurchModule extends Module{
       child: (_, args) => const ChurchPage(),
     ),
 
+    ChildRoute(
+      '/address',
+      child: (context, args) => const CreateCruchAddressPage(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/create_churches',
+      module: CreateChurchModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/create_churches_address',
+      module: CreateChurchAddressModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/list_churches',
+      module: ListChurchesModule(),
+      transition: TransitionType.fadeIn,
+    ),
+
     ModuleRoute(
       '/regions',
       module: RegionsModule(),
+      transition: TransitionType.fadeIn,
+    ),
+    ModuleRoute(
+      '/create_regions',
+      module: CreateRegionsModule(),
       transition: TransitionType.fadeIn,
     ),
 
@@ -33,10 +59,9 @@ class ChurchModule extends Module{
       module: AreaModule(),
       transition: TransitionType.fadeIn,
     ),
-
     ModuleRoute(
-      '/list_churches',
-      module: ListChurchesModule(),
+      '/create_areas',
+      module: CreateAreaModule(),
       transition: TransitionType.fadeIn,
     ),
 
